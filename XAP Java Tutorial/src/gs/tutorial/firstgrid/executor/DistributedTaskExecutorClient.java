@@ -32,20 +32,19 @@ public class DistributedTaskExecutorClient {
 			po.setOrderState(EPurchaseOrderState.NEW);
 			po.setOrderType(EPurchaseOrderType.BLANKET);
 			po.setNumber("X23456787890");
-			
+
 			LineItem item = new LineItem();
 			item.setCost(new BigDecimal(100.00));
 			po.addLineItem(item);
-			
+
 			gigaSpace.write(po);
-			
 
 			po = new PurchaseOrder();
 			po.setId(UUID.randomUUID());
 			po.setOrderState(EPurchaseOrderState.PROCESSED);
 			po.setOrderType(EPurchaseOrderType.DROPSHIPMENT);
 			po.setNumber("X2345");
-			
+
 			LineItem item1 = new LineItem();
 			item1.setCost(new BigDecimal(400.00));
 			po.addLineItem(item1);
@@ -53,7 +52,7 @@ public class DistributedTaskExecutorClient {
 
 			PODistributedTask task = new PODistributedTask();
 
-			AsyncFuture<BigDecimal> future = gigaSpace.execute(task,10);
+			AsyncFuture<BigDecimal> future = gigaSpace.execute(task, 10);
 			System.out.println(future.get());
 
 		} catch (Exception e) {

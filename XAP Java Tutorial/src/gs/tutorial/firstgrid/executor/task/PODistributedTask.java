@@ -1,6 +1,5 @@
 package gs.tutorial.firstgrid.executor.task;
 
-import gs.tutorial.domain.po.EPurchaseOrderType;
 import gs.tutorial.domain.po.LineItem;
 import gs.tutorial.domain.po.PurchaseOrder;
 
@@ -11,7 +10,6 @@ import org.openspaces.core.GigaSpace;
 import org.openspaces.core.executor.DistributedTask;
 import org.openspaces.core.executor.TaskGigaSpace;
 
-import com.gigaspaces.annotation.pojo.SpaceRouting;
 import com.gigaspaces.async.AsyncResult;
 
 public class PODistributedTask implements
